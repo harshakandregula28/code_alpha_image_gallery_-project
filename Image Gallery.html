@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<!-- saved from url=(0028)http://127.0.0.1:5500/z.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #111;
+            color: white;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 20px 0;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            padding: 20px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Lightbox */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .lightbox img {
+            max-width: 95%;
+            max-height: 90vh;
+            width: auto;
+            height: auto;
+            border-radius: 100px;
+        }
+
+        .lightbox button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Image Gallery</h1>
+
+    <div class="gallery">
+        <img src="./Image Gallery_files/100-400x300.jpg" onclick="openLightbox(this.src)">
+        <img src="./Image Gallery_files/101-400x300.jpg" onclick="openLightbox(this.src)">
+        <img src="./Image Gallery_files/102-400x300.jpg" onclick="openLightbox(this.src)">
+        <img src="./Image Gallery_files/103-400x300.jpg" onclick="openLightbox(this.src)">
+        <img src="./Image Gallery_files/104-400x300.jpg" onclick="openLightbox(this.src)">
+
+        <img src="./Image Gallery_files/106-400x300.jpg" onclick="openLightbox(this.src)">
+        <img src="./Image Gallery_files/107-400x300.jpg" onclick="openLightbox(this.src)">
+        <img src="./Image Gallery_files/108-400x300.jpg" onclick="openLightbox(this.src)">
+        <img src="./Image Gallery_files/109-400x300.jpg" onclick="openLightbox(this.src)">
+        <img src="./Image Gallery_files/110-400x300.jpg" onclick="openLightbox(this.src)">
+        <img src="./Image Gallery_files/111-400x300.jpg" onclick="openLightbox(this.src)">
+        <img src="./Image Gallery_files/112-400x300.jpg" onclick="openLightbox(this.src)">
+        <img src="./Image Gallery_files/113-400x300.jpg" onclick="openLightbox(this.src)">
+        <img src="./Image Gallery_files/114-400x300.jpg" onclick="openLightbox(this.src)">
+        <img src="./Image Gallery_files/115-400x300.jpg" onclick="openLightbox(this.src)">
+        <img src="./Image Gallery_files/116-400x300.jpg" onclick="openLightbox(this.src)">
+        <img src="./Image Gallery_files/117-400x300.jpg" onclick="openLightbox(this.src)">
+        <img src="./Image Gallery_files/118-400x300.jpg" onclick="openLightbox(this.src)">
+        <img src="./Image Gallery_files/119-400x300.jpg" onclick="openLightbox(this.src)">
+        <img src="./Image Gallery_files/120-400x300.jpg" onclick="openLightbox(this.src)">
+        <img src="./Image Gallery_files/121-400x300.jpg" onclick="openLightbox(this.src)">
+        <img src="./Image Gallery_files/122-400x300.jpg" onclick="openLightbox(this.src)">
+        <img src="./Image Gallery_files/123-400x300.jpg" onclick="openLightbox(this.src)">
+        <img src="./Image Gallery_files/124-400x300.jpg" onclick="openLightbox(this.src)">
+        <img src="./Image Gallery_files/125-400x300.jpg" onclick="openLightbox(this.src)">
+        <img src="./Image Gallery_files/126-400x300.jpg" onclick="openLightbox(this.src)">
+        <img src="./Image Gallery_files/127-400x300.jpg" onclick="openLightbox(this.src)">
+        <img src="./Image Gallery_files/128-400x300.jpg" onclick="openLightbox(this.src)">
+        <img src="./Image Gallery_files/129-400x300.jpg" onclick="openLightbox(this.src)">
+        <img src="./Image Gallery_files/130-400x300.jpg" onclick="openLightbox(this.src)">
+        <img src="./Image Gallery_files/131-400x300.jpg" onclick="openLightbox(this.src)">
+        <img src="./Image Gallery_files/132-400x300.jpg" onclick="openLightbox(this.src)">
+        <img src="./Image Gallery_files/133-400x300.jpg" onclick="openLightbox(this.src)">
+        <img src="./Image Gallery_files/134-400x300.jpg" onclick="openLightbox(this.src)">
+
+    </div>
+
+    <div class="lightbox" id="lightbox" style="display: none;">
+        <img id="lightboxImg" src="./Image Gallery_files/132-400x300.jpg">
+        <button onclick="closeLightbox()">Close</button>
+    </div>
+
+    <script>
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImg = document.getElementById("lightboxImg");
+
+        function openLightbox(src) {
+            lightbox.style.display = "flex";
+            lightboxImg.src = src;
+        }
+
+        function closeLightbox() {
+            lightbox.style.display = "none";
+        }
+
+        // Close when clicking outside image
+        lightbox.addEventListener("click", (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+    </script>
+
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+
+</body></html>
